@@ -38,7 +38,14 @@ public class LinearActuatorAndClaw {
     public void linearActuatorVert(Gamepad gamepad ) {
 
         if (gamepad.dpad_left) {
-            LA_motor.setTargetPosition(-1265);
+            MClaw.setPosition(0.72);
+            LAL_motor.setTargetPosition(-475);
+            LAR_motor.setTargetPosition(475);
+            LAL_motor.setPower(0.6);
+            LAR_motor.setPower(-0.6);
+            LAL_motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            LAR_motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            LA_motor.setTargetPosition(-1490);
             LA_motor.setPower(1);
             LA_motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         }
@@ -59,7 +66,7 @@ public class LinearActuatorAndClaw {
                 LA_motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             }
             else if (gamepad.dpad_up && (LAL_motor.getCurrentPosition() < 10 && LAL_motor.getCurrentPosition() > -10)){
-                LA_motor.setTargetPosition(-3865);
+                LA_motor.setTargetPosition(-4300);
                 LA_motor.setPower(1);
                 LA_motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             }
@@ -88,7 +95,7 @@ public class LinearActuatorAndClaw {
     public void linearActuatorMove(Gamepad gamepad , Telemetry telemetry) {
         
             if (gamepad.b) {
-                MClaw.setPosition(1);
+                MClaw.setPosition(0.79);
                 LAL_motor.setTargetPosition(-0);
                 LAR_motor.setTargetPosition(0);
                 LAL_motor.setPower(0.6);
@@ -100,7 +107,7 @@ public class LinearActuatorAndClaw {
             }
 
         if (gamepad.left_stick_button) {
-            MClaw.setPosition(0);
+            MClaw.setPosition(0.79);
             LAL_motor.setTargetPosition(-375);
             LAR_motor.setTargetPosition(418);
             LA_motor.setTargetPosition(-410);
@@ -120,16 +127,16 @@ public class LinearActuatorAndClaw {
 
         }
             if (gamepad.y) {
-                MClaw.setPosition(0.45);
-                LAL_motor.setTargetPosition(-1000);
-                LAR_motor.setTargetPosition(1000);
+                MClaw.setPosition(0.225);
+                LAL_motor.setTargetPosition(-957);
+                LAR_motor.setTargetPosition(957);
                 LAL_motor.setPower(0.6);
                 LAR_motor.setPower(-0.6);
                 LAL_motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 LAR_motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             }
             if (gamepad.x) {
-                MClaw.setPosition(0.45);
+                MClaw.setPosition(0.229);
                 LAL_motor.setTargetPosition(-375);
                 LAR_motor.setTargetPosition(369);
                 LAL_motor.setPower(0.5);
@@ -140,7 +147,7 @@ public class LinearActuatorAndClaw {
 
 
             if (gamepad.options) {
-                MClaw.setPosition(0.8);
+                MClaw.setPosition(0.6);
                 LAL_motor.setTargetPosition(-1190);
                 LAR_motor.setTargetPosition(1222);
                 LAL_motor.setPower(0.5);
@@ -151,17 +158,17 @@ public class LinearActuatorAndClaw {
 
             if (gamepad.a) {
 
-                LAL_motor.setTargetPosition(-1128);
-                LAR_motor.setTargetPosition(1128);
+                LAL_motor.setTargetPosition(-1050);
+                LAR_motor.setTargetPosition(1050);
                 LAL_motor.setPower(0.5);
                 LAR_motor.setPower(-0.5);
                 LAL_motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 LAR_motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-                MClaw.setPosition(0.45);
+                MClaw.setPosition(0.225);
             }
 
             if (gamepad.share) {
-                MClaw.setPosition(0.58);
+                MClaw.setPosition(0.4);
                 LAL_motor.setTargetPosition(-946);
                 LAR_motor.setTargetPosition(953);
                 LAL_motor.setPower(0.6);
@@ -181,13 +188,13 @@ public class LinearActuatorAndClaw {
                 LAR_motor.setPower(-0.6);
                 LAL_motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 LAR_motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-                LA_motor.setTargetPosition(-1595);
+                LA_motor.setTargetPosition(-2419);
                 LA_motor.setPower(1);
                 LA_motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             }
             if ((gamepad.left_trigger > 0) && (LAL_motor.getCurrentPosition() > -168 && LAL_motor.getCurrentPosition() < -155) && LA_motor.getCurrentPosition() < -1590){
                 claw_servo.setPosition(0.54);
-                MClaw.setPosition(0.45);
+                MClaw.setPosition(0.225);
                 LA_motor.setTargetPosition(0);
                 LA_motor.setPower(0.8);
                 LA_motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -201,10 +208,10 @@ public class LinearActuatorAndClaw {
                 }
             }
             if (gamepad.touchpad_finger_1){
-                MClaw.setPosition(1);
+                MClaw.setPosition(0.79);
             }
             if (gamepad.touchpad_finger_2){
-                MClaw.setPosition(0.5);
+                MClaw.setPosition(0.225);
             }
 
 
@@ -239,7 +246,7 @@ public class LinearActuatorAndClaw {
             claw_servo.setPosition(1);
         }
         if (gamepad.left_bumper) {
-            claw_servo.setPosition(0.54);
+            claw_servo.setPosition(0.50);
         }
         if (gamepad.left_bumper && gamepad.right_bumper) {
             claw_servo.setPosition(0.3);
@@ -253,11 +260,14 @@ public class LinearActuatorAndClaw {
                 MClaw.setPosition(1);
             }
             if (pos == "forward") {
-                MClaw.setPosition(0.45);
+                MClaw.setPosition(0.071);
             }
             if (pos == "wall") {
-                MClaw.setPosition(0.58);
+                MClaw.setPosition(0.235);
             }
+        }
+        public void clawServoActions(int pos){
+        claw_servo.setPosition(pos);
         }
     public void clawServoActions(String pos) {
         pos.toLowerCase();
@@ -266,7 +276,7 @@ public class LinearActuatorAndClaw {
             claw_servo.setPosition(1.0);
         }
         if (pos == "open") {
-            claw_servo.setPosition(0.4);
+            claw_servo.setPosition(0.48);
         }
         if (pos == "super open") {
             claw_servo.setPosition(0.3);
@@ -296,6 +306,7 @@ public class LinearActuatorAndClaw {
 
         }
         if (posType == "vertical") {
+            MClaw.setPosition(0.229);
             LAL_motor.setTargetPosition(-375);
             LAR_motor.setTargetPosition(369);
             LAL_motor.setPower(0.5);
@@ -305,29 +316,22 @@ public class LinearActuatorAndClaw {
         }
 
         if (posType == "hover"){
-            LAL_motor.setTargetPosition(-1010);
-            LAR_motor.setTargetPosition(1010);
+            LAL_motor.setTargetPosition(-980);
+            LAR_motor.setTargetPosition(980);
             LAL_motor.setPower(0.5);
             LAR_motor.setPower(-0.5);
             LAL_motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             LAR_motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            MClaw.setPosition(0.225);
         }
         if (posType == "pick up"){
-            LAL_motor.setTargetPosition(-1175);
-            LAR_motor.setTargetPosition(1175);
-            LAL_motor.setPower(0.5);
-            LAR_motor.setPower(-0.5);
+            LAL_motor.setTargetPosition(-1070);
+            LAR_motor.setTargetPosition(1070);
+            LAL_motor.setPower(0.6);
+            LAR_motor.setPower(-0.6);
             LAL_motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             LAR_motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        }
-        if (posType == "drag block"){
-            MClaw.setPosition(0.58);
-            LAL_motor.setTargetPosition(-1175);
-            LAR_motor.setTargetPosition(1175);
-            LAL_motor.setPower(0.5);
-            LAR_motor.setPower(-0.5);
-            LAL_motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            LAR_motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            MClaw.setPosition(0.225);
         }
 
         if (posType == "rest"){
@@ -343,13 +347,13 @@ public class LinearActuatorAndClaw {
             MClaw.setPosition(1);
             LAL_motor.setTargetPosition(-0);
             LAR_motor.setTargetPosition(0);
-            LAL_motor.setPower(1);
-            LAR_motor.setPower(-1);
+            LAL_motor.setPower(0.8);
+            LAR_motor.setPower(-0.8);
             LAL_motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             LAR_motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         }
         if (posType == "wall") {
-            MClaw.setPosition(0.58);
+            MClaw.setPosition(0.235);
             LAL_motor.setTargetPosition(-946);
             LAR_motor.setTargetPosition(953);
             LAL_motor.setPower(0.6);
@@ -365,6 +369,16 @@ public class LinearActuatorAndClaw {
             LAL_motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             LAR_motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         }
+        if(posType == "narwhal"){
+            LAL_motor.setTargetPosition(-209);
+            LAR_motor.setTargetPosition(183);
+            LAL_motor.setPower(0.8);
+            LAR_motor.setPower(-0.8);
+            LAL_motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            LAR_motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            MClaw.setPosition(1);
+
+        }
 
     }
 
@@ -377,7 +391,7 @@ public class LinearActuatorAndClaw {
         height.toLowerCase();
 
         if (height == "top basket"){
-            LA_motor.setTargetPosition(-3346);
+            LA_motor.setTargetPosition(-4300);
             LA_motor.setPower(1);
             LA_motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         }
@@ -398,7 +412,8 @@ public class LinearActuatorAndClaw {
             LA_motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         }
         if (height == "front high chamber"){
-            LA_motor.setTargetPosition(-500);
+            MClaw.setPosition(0.225);
+            LA_motor.setTargetPosition(-878);
             LA_motor.setPower(1);
             LA_motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         }
