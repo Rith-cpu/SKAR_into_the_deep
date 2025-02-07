@@ -101,7 +101,7 @@ public class AutoBaskets4 extends LinearOpMode {
         Actions.runBlocking(
                 drive.actionBuilder(position)
                         .turn(Math.toRadians(32))
-                        .strafeTo(new Vector2d(-52,52),new TranslationalVelConstraint(100), new ProfileAccelConstraint(-90, 90))
+                        .strafeTo(new Vector2d(-53,52),new TranslationalVelConstraint(100), new ProfileAccelConstraint(-90, 90))
                         .build());
         arm.armPivot("pick up");
         sleep(800);
@@ -110,7 +110,7 @@ public class AutoBaskets4 extends LinearOpMode {
         arm.armPivot("Crest");
         arm.armVert("top basket");
         sleep(300);
-        Pose2d pos2 = new Pose2d(-52, 52, 0);
+        Pose2d pos2 = new Pose2d(-53, 52, 0);
         Actions.runBlocking(
                 drive.actionBuilder(pos2)
                         .strafeTo(new Vector2d(-43,40),new TranslationalVelConstraint(100), new ProfileAccelConstraint(-90, 90))
